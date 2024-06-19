@@ -17,3 +17,8 @@
 ## Con los seeders creamos los datos para llenar las tablas, para crear los seeders se hace ejecutando el comando php artisan make:seeder. Una vez creado el seeder, lo llamamos en el DataBaseSeeder y ejecutamos el comando php artisan db:seed para que se ejecute 
 
 ## En los seeders, con el uso de insert podemos colocar codigo sql directamente de esta manera -> DB::insert('INSERT INTO professions (title) VALUES ("Desarrollador back-end")');
+
+## Los modelos se crean con el comando php artisan make:model Profession. Los modelos son para trabajar con los seeders, solo que en lugar de trabajar con las consultas normales trabaja con los modelos, lo que es mejor ya que es en un mas alto nivel y nos rellena los campos de created_at y updated_at
+
+## IMPORTANTE, en el seeder de user si utilizamos el orm para obtener el valor de la llave foranea, es importante saber que el metodo WHERE no existe, pero el eloquent tiene algo llamado 'METODOS MAGICOS' los cuales a pesar de no encontrar un metodo en laravel llama a al metdo call
+

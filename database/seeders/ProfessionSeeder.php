@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use \App\Models\Profession;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -22,20 +23,23 @@ class ProfessionSeeder extends Seeder
         //     'title' => 'Desarrollador back-end'
         // ]);
 
-        DB::table('professions')->insert([
-            'title' => 'Desarrollador Back'
+
+        // Crear con una consulta 
+        // DB::table('professions')->insert([
+        //     'title' => 'Desarrollador Back'
+        // ]);
+
+        // Crear con un modelo
+        Profession::create([ // De esta manera llamamos al modelo
+            'title' => 'Desarrollador back-end',
         ]);
 
-        DB::table('professions')->insert([
-            'title' => 'Desarrollador Front'
+        Profession::create([
+            'title' => 'Desarrollador frond-end',
         ]);
 
-        DB::table('professions')->insert([
-            'title' => 'Desarrollador Full Stack'
-        ]);
-
-        DB::table('professions')->insert([
-            'title' => 'Desarrollador de Software'
+        Profession::create([
+            'title' => 'Desarrollador web',
         ]);
     }
 }
