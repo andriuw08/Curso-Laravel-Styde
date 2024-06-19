@@ -28,3 +28,7 @@
 
 ## En eloquent y tinker podemos hacer cualquier tipo de consulta, creacion, visualizacion, edicion, eliminacion, obtener, todas las consultas sql las podemos hacer desde la terminal con tinker.
 
+## Los model factories permiten crear registros de prueba o para ejecutar pruebas unitarias, para poder acceder a los model factories tenems que utilizar tinker, luego desde tinker ejecutando el comando factory(User::class)->create(); IMPORTANTE-> Lo que esta en el parentesis es el modelo el cual queremos relacionar.
+
+## Desde los seeders tambien podemos utilizar el factory, esto para poder generar muchos registros fakes de manera mas rapida, esto con el fin de realizar pruebas, pes una de las multiples maneras de general muchos registros. 
+
