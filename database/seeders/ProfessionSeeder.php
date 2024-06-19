@@ -14,6 +14,14 @@ class ProfessionSeeder extends Seeder
      */
     public function run()
     {
+        // De esta manera ingresamos codigo directamente con sentencias sql, el ? en el value nos indica que es un parametro dinamico, haciendo asi que en los corchetes podamos pasar el valor que queremos colocar
+        // DB::insert('INSERT INTO professions (title) VALUES (?)', ['Desarrollador back-end']);
+
+        //Otra manera de hacerlo es que en lugar de un ? utilicemos con dos puntos y el parametro directamente, asi podemos pasar varios valores con una sola consulta
+        // DB::insert('INSERT INTO professions (title) VALUES (:title)', [
+        //     'title' => 'Desarrollador back-end'
+        // ]);
+
         DB::table('professions')->insert([
             'title' => 'Desarrollador Back'
         ]);
