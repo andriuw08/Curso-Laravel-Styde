@@ -22,6 +22,9 @@
 
 ## IMPORTANTE, en el seeder de user si utilizamos el orm para obtener el valor de la llave foranea, es importante saber que el metodo WHERE no existe, pero el eloquent tiene algo llamado 'METODOS MAGICOS' los cuales a pesar de no encontrar un metodo en laravel llama a al metdo call
 
-## Tinker es un entorno de programacion desde la misma terminal, para acceder al entorno es con php artisan tinker
- 
+## Tinker es un entorno de programacion desde la misma terminal, para acceder al entorno es con php artisan tinker. IMPORTANTE -> Si estoy usando Tinker y quiero utilizar alguno de los modelos para hacer consultas, pruebas, agregar registros y cosas asi, tengo que importar el modelo con use App\Models\Profession, una vez hecho esto ya podriamos utiliizar el modelo por su nombre.
+
+## En tinker hay un error llamado MassAssignmentException, el cual para solucionarlo debemos hace lo siguiente -> En el modelo de la tabla la cual estamos queriendo crear valores, le debemos de coloca el siguiente codigo adentro del modelo protected $fillable = ['title']; esto para poder permitir la asignacion masiva de valores.
+
+## En eloquent y tinker podemos hacer cualquier tipo de consulta, creacion, visualizacion, edicion, eliminacion, obtener, todas las consultas sql las podemos hacer desde la terminal con tinker.
 
