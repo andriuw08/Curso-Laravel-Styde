@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use \App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,13 +23,17 @@ Route::get('/usuarios', function () {
     if(request()->has('empty')){ // Esto verifica si el arreglo esta vacio, en caso de contener el elemento empty devolvera el arreglo vacio, en caso de que no devolvera el arreglo con los usuarios
         $users = [];
     } else {
-        $users = [
-            'Joel',
-            'Ellie',
-            'Tess',
-            'Tommy',
-            'Bill',
-        ]; // De esta manera podeos ir creando informacion, en este caso un simple arreglo, se pueden hacer cosas mucho mas producidas que se veran depsues
+        // Esta es la manera de hacerlo con datos estaticos
+        // $users = [
+        //     'Joel',
+        //     'Ellie',
+        //     'Tess',
+        //     'Tommy',
+        //     'Bill',
+        // ]; // De esta manera podeos ir creando informacion, en este caso un simple arreglo, se pueden hacer cosas mucho mas producidas que se veran depsues
+
+        // Esta es la manera de hacerlo con datos dinamicos traidos directamente desde nuestra base de datos
+        $users = DB::table('users')->get();
     }
 
 
@@ -42,8 +48,11 @@ Route::get('/usuarios', function () {
 });
 
 Route::get('/usuarios/{id}', function ($id) {
+    
+    $user = User::find($id);
+
     return view('users.show', [
-        'id' => $id
+        'id' => $user
     ]);
 })->where('id', '[0-9]+'); // Con esto se puede crear una condicion para la ruta, haciendo que solo acepte un tipo de dato y cosas asi por el estilo, una expresion regular para una ruta basicamente
 

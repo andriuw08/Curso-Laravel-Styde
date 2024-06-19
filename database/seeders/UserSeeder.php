@@ -32,11 +32,46 @@ class UserSeeder extends Seeder
             'professions_id' => $professionId
         ]);
 
+        User::create([
+            'name' => 'Penny Piper',
+            'email' => 'penny.piper@gmail.com',
+            'password' => bcrypt('laravel'), // De esta manera generamos una contraseña encriptada con laravel
+            'professions_id' => $professionId
+        ]);
+
+        User::create([
+            'name' => 'Raul Primo',
+            'email' => 'raul.primo@gmail.com',
+            'password' => bcrypt('laravel'), // De esta manera generamos una contraseña encriptada con laravel
+            'professions_id' => $professionId
+        ]);
+
+        User::create([
+            'name' => 'Nita Oso',
+            'email' => 'nita.oso@gmail.com',
+            'password' => bcrypt('laravel'), // De esta manera generamos una contraseña encriptada con laravel
+            'professions_id' => $professionId
+        ]);
+
         // DB::table('users')->insert([
         //     'name' => 'Andriuw Yepez',
         //     'email' => 'andriuw.yepez@gmail.com',
         //     'password' => bcrypt('laravel'), // De esta manera generamos una contraseña encriptada con laravel
         //     'professions_id' => $professionId
         // ]);
+
+        // Asi lo creamos con el factory para poder generar varios usuarios aleatoriamente y asi mejorar las pruebas
+        // factory(User::class)->created([
+        //     'name' => 'Andriuw Yepez',
+        //     'email' => 'andriuw.yepez@gmail.com',
+        //     'password' => bcrypt('laravel'), // De esta manera generamos una contraseña encriptada con laravel
+        //     'professions_id' => $professionId
+        // ]);
+
+        // factory(User::class)->create([
+        //     'profession_id' => $professionId
+        // ]);
+
+        // Comment::factory()->count(10)->create(); // De esta manera creamos registros con datos aleatorios, el segundo parametro es la cantidad de registros que vamos a crear
     }
 }

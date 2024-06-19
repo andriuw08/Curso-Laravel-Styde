@@ -15,7 +15,7 @@ class UsersModuleTest extends TestCase
             ->assertStatus(200)
             ->assertSee('Listado de usuarios') // Este hace que comprueba que si cuando se carga la vista se vea el texto usuarios
             ->assertSee('Tommy')
-            ->assertSee('Joel'); // De esta manera estamos haciendo el test para los datos que se han creado en el arreglo 
+            ->assertSee('Joel');
     }
 
     /** @test */

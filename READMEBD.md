@@ -32,3 +32,54 @@
 
 ## Desde los seeders tambien podemos utilizar el factory, esto para poder generar muchos registros fakes de manera mas rapida, esto con el fin de realizar pruebas, pes una de las multiples maneras de general muchos registros. 
 
+## =========================================================##
+
+## Uso de los test
+
+## Los test los encontramos en la carpeta test/feature, estos test sirven para probar las rutas, que se reciban bien y que devuelvan lo que tienen que devoler, estas rutas estan en el archivo routes/web, y estas rutas se suponen deberian de utilizar un controlador el cual se encuentran en app/http/controllers. Estos test sirven para que antes de hacer cualquier cambio en la base de datos o cualquier cambio importante comprobemos que los cambios previos a estos esten bien,ya que si hacemos un cambio y ya los test no pasan es una manera de comprobar en donde esta el error
+
+## IMPORTANTE -> la manera de correr estos test es con el codio vendor/bin/phpunit en la terminal
+
+## IMPORTANTE -> Hay que implementar el uso de controladores ya que tener tanto codigo en las rutas no esta bien, ni visualmete ni funcionalmente
+
+## Con el uso de factory podemos crear muchos registros falsos en nuestros seeders mejorar las pruebas
+
+
+## =============================================================================##
+
+## Uso de blade
+
+## Realmente blade no es dificil de aprender, es como vue pero con sentencias un poco diferentes, estas son maneras diferentes de trabajar con un valor en blade, lo tenia en la misma plantilla pero da error a pesar de estar comentado
+##  ESTA ES LA MANERA DE HACERLO CON PHP NATIVO 
+##    <ul>
+##        De esta manera recorremos el arreglo de usuarios que hemos creado en las rutas, para asi poder mostrarlo en la vista como una lista
+##        <?php foreach($users as $user): ?>
+##            <li> <?php echo e($user) ?> </li>
+##            el metodo e es muy importante para que php ignore el codigo html o js que pueda llegar a estar en el arreglo, esto con el fin de que si alguien llega a crear un usuario con codigo js o html se muestre como un string
+##        <?php endforeach ?>
+##    </ul> -->
+##    TAMBIEN SE PUEDE USAR UN UNLESS EN LUGAR DE UN CONDICIONAL
+##            El unless funciona como un condicional pero inversio, es decir, "A menos que la lista de usuarios este vacia, mostrare el listado de usuarios, sino el arreglo de usuarios"
+##    @unless(empty($users))
+##        <ul>
+##            @foreach($users as $user)
+##                <li> {{ $user }} </li>
+##            @endforeach        
+##        </ul>
+##    @else
+##        <p> No hay usuarios registrados </p>
+##    @endunless   -->
+##
+##    TAMBIEN SE PUEDE USAR UN EMPTY EN LUGAR DE UN CONDICIONAL
+##            El empty se usa para verificar si una variable esta vacia
+##    @empty($users)
+##        <p> No hay usuarios registrados </p>
+##        @else
+##        <ul>
+##            @foreach($users as $user)
+##                <li> {{ $user }} </li>
+##            @endforeach        
+##        </ul>
+##    @endempty   -->
+
+
