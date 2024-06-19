@@ -22,3 +22,6 @@
 
 ## IMPORTANTE, en el seeder de user si utilizamos el orm para obtener el valor de la llave foranea, es importante saber que el metodo WHERE no existe, pero el eloquent tiene algo llamado 'METODOS MAGICOS' los cuales a pesar de no encontrar un metodo en laravel llama a al metdo call
 
+## Tinker es un entorno de programacion desde la misma terminal, para acceder al entorno es con php artisan tinker
+ 
+
