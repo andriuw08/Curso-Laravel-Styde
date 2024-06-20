@@ -44,6 +44,9 @@
 
 ## Con el uso de factory podemos crear muchos registros falsos en nuestros seeders mejorar las pruebas
 
+## Lo mas recomendable cuando hacemos test es tener dos bases de datos, una con los datos normales y una para hacer test, esto debido a que si tenemos un test que necesitamos que cree datos especificos o que borre una tabla para comprobar cuando este vacio esto nos puede generar probelmas con los datos reales y con los seeders
+
+## Para hacer test mas automaticos y esecificos a la base de datos utilizamos una linea de codigo use RefreshDatabase; El problema con esto es que limpia las bases de datos y las vuelve a llenar utilizando el migrate y el seeder, cosa que como mencione anteriormente me daria error ya que no puedo utilizar los migrates, una vez solucione el problema que tengo con ello podre utilizar este comando.
 
 ## =============================================================================##
 

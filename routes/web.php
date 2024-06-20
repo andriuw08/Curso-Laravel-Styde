@@ -49,11 +49,18 @@ Route::get('/usuarios', function () {
 
 Route::get('/usuarios/{id}', function ($id) {
     
+    // De esta manera se obtienen datos de la base de datos con consultas php
+    // $user = DB::table('users')->get();
+
+    // De esta manera se obtienen datos de la base de datos utilizando atajos de laravel, me funciono mejor de esta manera
     $user = User::find($id);
 
-    return view('users.show', [
-        'id' => $user
-    ]);
+    // Esta es otra manera de pasar un valor a una vista de manera dinamica, me funciono mejor para acceder al id
+    return view('users.show', compact('user'));
+
+    // return view('users.show', [
+    //     'user' => $user
+    // ]);
 })->where('id', '[0-9]+'); // Con esto se puede crear una condicion para la ruta, haciendo que solo acepte un tipo de dato y cosas asi por el estilo, una expresion regular para una ruta basicamente
 
 Route::get('/saludo/{name}/{nickname?}', function ($name, $nickname = null) {

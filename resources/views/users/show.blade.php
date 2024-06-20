@@ -2,5 +2,6 @@
 @section('title', "Usuario {$user->id}")
 @section('content')
     <h1> Usuario #{{ $user->id }} </h1>
-    Este es el usuario con el id: {{ $user->id }}
+    <span> Nombre del usuario: {{ $user->name }} </span> <br>
+    <span> Correo electronico: {{ $user->email }} </span> <br>
 @endsection
