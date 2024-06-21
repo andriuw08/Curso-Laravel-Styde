@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use \App\Models\User;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,11 +49,11 @@ Route::get('/usuarios', function () {
 });
 
 Route::get('/usuarios/{id}', function ($id) {
-    
+    $user = User::findOrFail($id); // Esto sirve para verificar el id que se esta pasando por la ruta, esto en caso de que no exista se muestre un error
     // De esta manera se obtienen datos de la base de datos con consultas php
     // $user = DB::table('users')->get();
 
-    // De esta manera se obtienen datos de la base de datos utilizando atajos de laravel, me funciono mejor de esta manera
+    // De esta manera se obtienen datos de la base de datos utilizando atajos de laravel, me funciono mejor de esta manera 
     $user = User::find($id);
 
     // Esta es otra manera de pasar un valor a una vista de manera dinamica, me funciono mejor para acceder al id
@@ -83,3 +84,15 @@ Route::get('/saludo/{name}/{nickname?}', function ($name, $nickname = null) {
 //     ->where('id', '[0-9]+'); // Con esto se puede crear una condicion para la ruta, haciendo que solo acepte un tipo de dato y cosas asi por el estilo, una expresion regular para una ruta basicamente
 
 // Route::get('/saludo/{name}/{nickname?}', 'WelcomeUserController@index');
+
+// Rutas post
+
+Route::get('/usuarios/nuevo', [UserController::class, 'create']);
+
+Route::post('/usuarios/crear', [UserController::class, 'store']);
+
+Route::get('/usuarios/{user}/editar', [UserController::class, 'edit']);
+
+Route::put('/usuarios/{user}', [UserController::class, 'update']);
+
+Route::delete('/usuarios/{user}/eliminar', [UserController::class, 'destroy']);

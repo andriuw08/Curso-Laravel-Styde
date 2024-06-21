@@ -85,4 +85,22 @@
 ##        </ul>
 ##    @endempty   -->
 
+## ====================================================================##
+
+## Manejo de errores
+
+## En nuestras rutas, con el codigo $user = User::findOrFail($id); validamos si existe o no el id en el arreglo de usuarios, caso de que no nos va  allevar a una especificamente creada para el manejo de errores 404, para personalizar esta pagina lo podemos hacer creando una ista con el nombre 404.blade.php obligatoriamente, en una carpera del estilo views/errors/404.blade.php
+
+## Cuando queremos hacer una peticion post muchas veces laravel las protege, dependiendo de la version de laravel podemo arreglar comentando la linea de codigo \App\Http\Middleware\VerifyCsrfToken::class, en el kernel.php de la carpeta http, o en otras versiones de laravel con la linea de codigo { !! csrf_field() !! } en el formulario que hace la peticion
+
+## SOLUCION DEL ERROR { !! csrf_field() !! } -> en otras versiones en lugar de usarlo asi se usa @csrf
+
+## IMPORTANTE, es necesario dejar esa linea de codigo activada y hacerlo generando un token, ya que esto es lo que nos protege ante ataques de tipo post.
+
+
+## =====================================================================================##
+
+## NOTAS IMPORTANTES
+ 
+ ## Los problemas que he ido comentando a lo largo del curso se debe a la version de laravel, lastimosamente el curoso que estoy haciendo tiene una version de laravel de 5, mientras que en mi entorno de desarrollo uso la version 8, lo cual me genera ciertos problemas, algunos ya he ido solucionando poco a poco y otros como son el caso de los migrates, factories y RefreshDataBase los he ido dejando para despues, ya que solo con cambiar la sintaxis a la version actualizada deberia de ser mas que suficiente. 
 

@@ -64,7 +64,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Usuarios <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{{ url("/usuarios") }}">Usuarios <span class="sr-only">(current)</span></a>
         </li>
       </ul>
     </div>
